@@ -1,6 +1,6 @@
 from django.db import models
 
-class BoardGame(models.Model):
+class Game(models.Model):
     """A games the gamers own currently"""
     name = models.CharField(max_length=200)
 

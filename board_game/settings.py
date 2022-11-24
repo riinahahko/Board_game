@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #My apps 
-    'BoardGame',
+    'board_games',
 
     #Default django apps.
     'django.contrib.admin',
