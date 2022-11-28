@@ -11,3 +11,19 @@
     </ul>
 
 {% endblock content %} 
+
+    <p>Game: {{ game }}</p>
+
+    <p>Gamers:</p>
+    <ul>
+    {% for gamer in gamers %}
+        <li>
+            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ entry.name|linebreaks }}</p>
+        </li>
+    {% empty %} 
+        <li>There are no gamers for this game yet.</li>
+    {% endfor %} 
+    </ul>
+
+{% endblock content %}
