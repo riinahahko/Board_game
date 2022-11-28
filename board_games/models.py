@@ -17,3 +17,5 @@ class Gamers(models.Model):
     
     def __str__(self):
         return f"{self.game[:50]}..."
+
+
