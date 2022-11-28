@@ -20,8 +20,8 @@
     <ul>
     {% for gamer in gamers %}
         <li>
-            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-            <p>{{ entry.name|linebreaks }}</p>
+            <p>{{ gamers.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ gamers.name|linebreaks }}</p>
         </li>
     {% empty %} 
         <li>There are no gamers for this game yet.</li>
