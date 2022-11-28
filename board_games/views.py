@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from .models import Game
 from .forms import GameForm
@@ -22,3 +23,9 @@ def new_game(request):
     context = {'form': form}
     return render(request, 'board_games/new_game.html, context')
     
+def game(request, game_id):
+    """Show all games."""
+    game = Game.objects.get(id=game_id)
+    gamers = Game.objects.order_by('date_added')
+    context = {'game':game, 'gamers':gamers}
+    return render( request, 'board_games/games.html', context)

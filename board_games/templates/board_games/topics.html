@@ -1,0 +1,31 @@
+{% extends "board_games/base.html" %} 
+
+{% block content %} 
+    <p>Games</p>
+
+    <ul> 
+        {% for game in games %} 
+            <li>
+                <a href="{%url 'board_games:game' game.id%}">{{ game }}</a>
+            </li>
+        {% empty %} 
+            <li>No games have been added yet.</li>
+    </ul>
+
+{% endblock content %} 
+
+    <p>Game: {{ game }}</p>
+
+    <p>Gamers:</p>
+    <ul>
+    {% for gamer in gamers %}
+        <li>
+            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ entry.name|linebreaks }}</p>
+        </li>
+    {% empty %} 
+        <li>There are no gamers for this game yet.</li>
+    {% endfor %} 
+    </ul>
+
+{% endblock content %}
