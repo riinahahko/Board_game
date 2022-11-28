@@ -11,5 +11,5 @@ urlpatterns = [
     #Page that shows all games.
     path('games/', views.games , name='games'),
     #Detail page for a single game 
-    path('Games/<int:Game_id>/', views.Game, name='game'),
+    path('games/<int:game_id>/', views.game, name='game'),
 ]
