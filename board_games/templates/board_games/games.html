@@ -12,7 +12,9 @@
             <li>No games have been added yet.</li>
     </ul>
 
-{% endblock content %} 
+
+{% endfor content %} 
+
 
     <p>Game: {{ game }}</p>
 
@@ -20,8 +22,10 @@
     <ul>
     {% for gamer in gamers %}
         <li>
-            <p>{{ gamers.date_added|date:'M d, Y H:i' }}</p>
-            <p>{{ gamers.name|linebreaks }}</p>
+
+            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ entry.name|linebreaks }}</p>
+
         </li>
     {% empty %} 
         <li>There are no gamers for this game yet.</li>
