@@ -27,9 +27,9 @@ def new_game(request):
 def game(request, game_id):
     """Show all games."""
     game = Game.objects.get(id=game_id)
-    gamers = Game.objects.order_by('date_added')
+    gamers = Game.objects.order_by('name')
     context = {'game':game, 'gamers':gamers}
-    return render( request, 'board_games/games.html', context)
+    return render( request, 'board_games/game.html', context)
 
 def games(request):
     """Show all games."""
