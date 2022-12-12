@@ -1,7 +1,8 @@
-{% extends "board_games/base.html" %} 
-
-{% block content %} 
-
-    <p>Game:</p>
-
-{% endlblock content% }
+{%extends "board_games/base.html"%}
+{%block content%}
+  <p>Game: {{ game }}</p>
+  <p>Borrows:</p>
+  <p><a href="{%url 'board_games:new_borrow' game.id%}">Add ne borrow</a></p>
+  <ul>
+  </ul>
+{%endblock content%}
