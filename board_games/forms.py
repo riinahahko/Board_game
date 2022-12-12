@@ -1,5 +1,5 @@
 from django import forms
-from .models import Game, Gamers
+from .models import Game, Borrow
 
 
 class GameForm(forms.ModelForm):
