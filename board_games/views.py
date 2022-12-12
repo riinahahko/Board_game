@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Game
 from .forms import GameForm
 from .forms import BorrowForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -27,6 +28,7 @@ def new_game(request):
     context = {'form': form}
     return render(request, 'board_games/new_game.html, context')
     
+@login_required
 def game(request, game_id):
     """Show all games."""
     game = Game.objects.get(id=game_id)
@@ -34,12 +36,14 @@ def game(request, game_id):
     context = {'game':game, 'gamers':gamers}
     return render( request, 'board_games/game.html', context)
 
+@login_required
 def games(request):
     """Show all games."""
     games = Game.objects.order_by('name')
     context = {'games': games }
     return render(request, 'board_games/games.html', context)
 
+@login_required
 def new_borrow(request, game_id):
     """Add a new borrow info on a game."""
     game = Game.objects.get(id=game_id)
@@ -51,6 +55,7 @@ def new_borrow(request, game_id):
             new_borrow = form.save(commit=False)
             new_borrow.game=game
             new_borrow.save()
+
             return redirect('board_games/new_borrow.html', context)
 
 def register(request):
@@ -71,3 +76,9 @@ def register(request):
     # Display a blank or invalid form
     context = {'form': form}
     return render(request, 'registration/register.html', context)
+
+            return redirect('board_games:game', game_id=game_id)
+    # Display a blank or invalid form.
+    context={'game':game,'form':form}
+    return render(request, 'board_games/new_borrow.html', context)
+
