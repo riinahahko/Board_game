@@ -14,4 +14,5 @@ urlpatterns = [
     path('games/', views.game , name='games'),
     #Detail page for a single game 
     path('games/<int:game_id>/', views.game, name='game'),
+
 ]
