@@ -9,7 +9,7 @@ class GameForm(forms.ModelForm):
         labels = {'name':''}
 
 class BorrowForm(forms.ModelForm):
-  model=Player
+  model = Borrow
   fields=['text']
   labels={'text':''}
   widgets={'text':forms.Textarea(attrs={'cols':80})}
