@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from .models import Game
 from .forms import GameForm
+from .forms import BorrowForm
 
 
 def index(request):
