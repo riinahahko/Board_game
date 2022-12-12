@@ -14,6 +14,4 @@ urlpatterns = [
     path('games/', views.game , name='games'),
     #Detail page for a single game 
     path('games/<int:game_id>/', views.game, name='game'),
-    #Detail page for adding new borrow
-    path('new_borrow/', views.new_borrow, name='new_borrow'),
 ]
