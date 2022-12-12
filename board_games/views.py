@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from .models import Game
 from .forms import GameForm
+from .forms import BorrowForm
 
 
 def index(request):
@@ -37,3 +38,15 @@ def games(request):
     context = {'games': games }
     return render(request, 'board_games/games.html', context)
 
+def new_borrow(request, game_id):
+    """Add a new borrow info on a game."""
+    game = Game.objects.get(id=game_id)
+    if request.method != 'POST':
+        form = BorrowForm()
+    else:
+        form = BorrowForm(data=request.POST)
+        if form.is_valid():
+            new_borrow = form.save(commit=False)
+            new_borrow.topic=topic
+            new_borrow.save()
+            return redirect('board_games/new_borrow.html', context)
