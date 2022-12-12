@@ -10,9 +10,9 @@ class Game(models.Model):
 
 class Borrow(models.Model):
   my_borrow = models.TextField()
-  game = models.ForeignKey(Game, on delete=models.CASACADE)
+  game = models.ForeignKey(Game, on_delete=models.CASACADE)
   date_added = models.DateTimeField(auto_now_add=True)
-  date_borrowed = DateTimeField(auto_add=True)
+  date_borrowed = models.DateTimeField(auto_add=True)
   
   def __str__(self):
     return f"{self.my_borrow[:50]}..."
