@@ -47,6 +47,6 @@ def new_borrow(request, game_id):
         form = BorrowForm(data=request.POST)
         if form.is_valid():
             new_borrow = form.save(commit=False)
-            new_borrow.topic=topic
+            new_borrow.game=game
             new_borrow.save()
             return redirect('board_games/new_borrow.html', context)
