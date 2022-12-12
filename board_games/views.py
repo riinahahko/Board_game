@@ -49,4 +49,7 @@ def new_borrow(request, game_id):
             new_borrow = form.save(commit=False)
             new_borrow.game=game
             new_borrow.save()
-            return redirect('board_games/new_borrow.html', context)
+            return redirect('board_games:game', game_id=game_id)
+    # Display a blank or invalid form.
+    context={'game':game,'form':form}
+    return render(request, 'board_games/new_borrow.html', context)
